@@ -49,7 +49,7 @@
   
         <div id="alert" class="blue lighten-5 col s10 offset-s1">     
           {% for message in messages %}
-            <div style="font-weight: bold;text-align: center;font-size: 1.2em;margin-top: -5px;">{{ message }}</div>
+            <div style="font-weight: bold;text-align: center;font-size: 1.2em;margin-top: -5px;">{{ message['message'] }}</div>
           {% endfor %}
           <a href="" id="close">&times;</a>
         </div>  

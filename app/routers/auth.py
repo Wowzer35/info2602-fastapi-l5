@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException, Depends, Request, Response, Form
 from sqlmodel import select
 from app.database import SessionDep
 from app.models import *
+from app.utilities import flash
 from app.auth import encrypt_password, verify_password, create_access_token, AuthDep
 from fastapi.security import OAuth2PasswordRequestForm
 from typing import Annotated
@@ -21,7 +22,7 @@ async def login_action(
     pass
 
 @auth_router.post('/signup', response_model=UserResponse, status_code=status.HTTP_201_CREATED)
-def signup_user(db:SessionDep, username: Annotated[str, Form()], email: Annotated[str, Form()], password: Annotated[str, Form()],):
+def signup_user(request:Request, db:SessionDep, username: Annotated[str, Form()], email: Annotated[str, Form()], password: Annotated[str, Form()],):
     # Implement task 3.4 here. Remove the line below that says "pass" once complete
     pass
 
